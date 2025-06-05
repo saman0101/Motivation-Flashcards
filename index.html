@@ -1,0 +1,124 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flashcard Cheerleader</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>✨ Flashcard Cheerleader ✨</h1>
+    <div id="flashcard" class="flashcard">Click "Next" for your motivation boost gurl!</div>
+    <button onclick="showNextCard()">Next Flashcard</button>
+  </div>
+  <script>
+    const flashcards = [
+      "Your brain is in beast mode. I’m just here with the snacks and love.",
+      "Synapses snapping. Focus locked. I see you, Dr. Main Character.",
+      "While you study diseases, I study how perfect you are. Balance.",
+      "You’re not behind. You’re just building momentum, baby.",
+      "Grind now, flex in the white coat later.",
+      "You’re not just memorizing facts. You’re mastering your future.",
+      "Other people panic. You plan.",
+      "Imposter syndrome who? Not on my man’s watch.",
+      "You missed a question? Cool. Now you’ll never forget it.",
+      "Studying is hard. Loving you? Easiest thing ever.",
+      "Board prep is temporary. Your doctor era? Forever.",
+      "You’re literally rewiring your brain. That’s not ‘late,’ that’s legendary.",
+      "Some people cram. You understand. And that’s the difference.",
+      "Even when you're tired, your mind is still powerful. Your effort is showing.",
+      "You're not just memorizing. You're building the kind of mind that saves lives.",
+      "Your prep doesn’t define you. But it does prove what you’re made of.",
+      "I know it’s hard right now. But look at you — still showing up. That’s strength.",
+      "It’s okay to rest. Your future isn’t going anywhere.",
+      "You’re not doing this alone. I’m in your corner, always.",
+      "Take a breath. You’re still on time. You’re still on path. You’re still you — and that’s enough.",
+      "When it feels heavy, remember who you are: someone who keeps going.",
+      "You don’t have to do it all today. Just do what you can.",
+      "You’re growing in invisible ways. Trust the process.",
+      "Your effort is seen, even if the results take time.",
+      "You’re allowed to take up space and take your time.",
+      "Your pace is valid. Your path is real.",
+      "You’re building something beautiful inside of you — patience, strength, and resilience.",
+      "It’s okay if all you did today was exist. That’s enough.",
+      "You’re allowed to pause. The world will wait for you.",
+      "I hope you’re gentle with yourself today. You deserve that softness.",
+      "You don’t need to be perfect to be proud of yourself.",
+      "If today feels heavy, you don’t have to carry it alone."
+    ];
+
+    let lastIndex = -1;
+
+    function showNextCard() {
+      const flashcardEl = document.getElementById("flashcard");
+      flashcardEl.classList.remove("fade-in");
+
+      let newIndex;
+      do {
+        newIndex = Math.floor(Math.random() * flashcards.length);
+      } while (newIndex === lastIndex);
+
+      lastIndex = newIndex;
+
+      setTimeout(() => {
+        flashcardEl.innerText = flashcards[newIndex];
+        flashcardEl.classList.add("fade-in");
+      }, 150);
+    }
+  </script>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #f0f8ff;
+      color: #1a9207;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      text-align: center;
+      text-decoration-color: #014018;
+      background: #e6f7ff;
+      padding: 2rem;
+      border-radius: 2xl;
+      box-shadow: 0 4px 12px rgba(36, 134, 25, 0.841);
+    }
+    .flashcard {
+      background: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      transition: opacity 0.3s ease-in-out;
+      min-height: 100px;
+    }
+    .fade-in {
+      opacity: 1;
+      animation: fadeIn 0.5s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    button {
+      background-color: #09622a;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 1rem;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #14895e;
+    }
+  </style>
+</body>
+</html>
+
